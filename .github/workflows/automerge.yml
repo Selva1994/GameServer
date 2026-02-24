@@ -26,11 +26,9 @@ jobs:
     steps:
       - id: automerge
         name: automerge
-        # uses: pascalgn/automerge-action@v0.16.4
-        uses: actions/checkout@v4
+        uses: pascalgn/automerge-action@v0.16.4
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           MERGE_LABELS: 'automerge,!wip,!work in progress'
           MERGE_METHOD: 'squash'
           MERGE_REQUIRED_APPROVALS: '0'
-          run: gh pr merge ${{ github.event.pull_request.number }} --auto
